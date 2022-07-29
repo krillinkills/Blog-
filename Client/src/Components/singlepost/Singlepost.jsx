@@ -1,16 +1,26 @@
+import { useLocation } from 'react-router-dom';
 import './singlepost.css';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+const PF = 'http://localhost:4000/images';
 
 function Singlepost() {
+  const location = useLocation();
+  const path = location.pathname.split('/')[2];
+  const [post, setPost] = useState({});
+  useEffect(() => {
+    const getPost = async () => {
+      const res = await axios.get('http://localhost:4000/api/post/' + path);
+      setPost(res);
+    };
+    getPost();
+  }, [path]);
   return (
     <div className="singlepost">
       <div className="singlepostwrapper">
-        <img
-          className="singlepostimg"
-          src="https://images.pexels.com/photos/12576758/pexels-photo-12576758.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt=""
-        />
+        {post.photo && <img className="postImg" src={PF + post.photo} alt="" />}
         <h1 className="singleposttitle">
-          Lorem ipsum
+          {post.title}
           <div className="singlepostedit">
             <i className="singleposticon far fa-edit"></i>
             <i className="singleposticon far fa-trash-alt"></i>
@@ -19,20 +29,11 @@ function Singlepost() {
         <div className="singlepostinfo">
           <span>
             Author:
-            <b className="singlepostauthor"> Any</b>
+            <b className="singlepostauthor"> {post.useranme}</b>
           </span>
-          <span> 1 day ago</span>
+          <span> {new Date(post.updatedAt).toDateString()}</span>
         </div>
-        <p className="singlepostdesc">
-          Loreum ipsium Kaggle offers a no-setup, customizable, Jupyter
-          Notebooks environment. Access GPUs at no cost to you and a huge
-          repository of community published data & code.
-          <br />
-          <br />
-          lorem ipsum Kaggle offers a no-setup, customizable, Jupyter Notebooks
-          environment. Access GPUs at no cost to you and a huge repository of
-          community published data & code.
-        </p>
+        <p className="singlepostdesc">{post.desc}</p>
       </div>
     </div>
   );

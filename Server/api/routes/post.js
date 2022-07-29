@@ -6,8 +6,8 @@ const Post = require('../models/post');
 router.post('/', async (req, res) => {
   const newPost = new Post(req.body);
   try {
-    const saveoPost = newPost.save();
-    res.status(201).json(savedPost);
+    const savePost = newPost.save();
+    res.status(201).json(savePost);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -68,7 +68,7 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-//Get all posy
+//Get all post
 router.get('/', async (req, res) => {
   const username = req.query.username;
   const catName = req.query.cat;

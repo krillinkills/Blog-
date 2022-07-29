@@ -8,9 +8,11 @@ const userRoute = require('./api/routes/user');
 const postRoute = require('./api/routes/post');
 const catRoute = require('./api/routes/categories');
 const path = require('path');
+const cors = require('cors');
 
 app.use(express.json());
 app.use(fileUpload());
+app.use(cors());
 dotenv.config();
 
 app.get('/', (req, res) => {

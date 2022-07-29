@@ -31,7 +31,7 @@ function App() {
             element={currentUser ? <Setting /> : <Login />}
           />
           <Route exact path="/post" element={<Home />} />
-          <Route exact path="/post:id" element={<Single />} />
+          <Route exact path="/post/:id" element={<Single />} />
           <Route
             exact
             path="/write"

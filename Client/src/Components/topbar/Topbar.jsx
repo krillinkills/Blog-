@@ -13,33 +13,45 @@ function Topbar() {
       <div className="topCenter">
         <ul className="topList">
           <li className="topListItem">
-            <Link to="/">Home</Link>
+            <Link to="/" className="link">
+              Home
+            </Link>
           </li>
           <li className="topListItem">About</li>
           <li className="topListItem">Contact</li>
           <li className="topListItem">
-            <Link to="/write">Write</Link>
+            <Link to="/write" className="link">
+              Write
+            </Link>
           </li>
 
           {currentUser ? (
             <li className="topListItem">
-              <Link to="#">Logout</Link>
+              <Link to="#" className="link">
+                Logout
+              </Link>
             </li>
           ) : null}
 
           {currentUser ? (
             <>
               <li className="topListItem">
-                <Link to="/settings">Settings</Link>
+                <Link to="/settings" className="link">
+                  Settings
+                </Link>
               </li>
             </>
           ) : (
             <>
               <li className="topListItem">
-                <Link to="/register">Register</Link>
+                <Link to="/register" className="link">
+                  Register
+                </Link>
               </li>
               <li className="topListItem">
-                <Link to="/login">Login</Link>
+                <Link to="/login" className="link">
+                  Login
+                </Link>
               </li>
             </>
           )}

@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const authRoute = require('./api/routes/auth');
 const userRoute = require('./api/routes/user');
 const postRoute = require('./api/routes/post');
-const catRoute = require('./api/routes/categories');
+const catRoute = require('./api/routes/category');
 const path = require('path');
 const cors = require('cors');
 

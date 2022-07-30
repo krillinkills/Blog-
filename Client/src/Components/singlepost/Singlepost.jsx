@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import './singlepost.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 const PF = 'http://localhost:4000/images';
 
 function Singlepost() {
@@ -29,7 +30,9 @@ function Singlepost() {
         <div className="singlepostinfo">
           <span>
             Author:
-            <b className="singlepostauthor"> {post.useranme}</b>
+            <Link to={'/?usename=' + post.useranme} className="link">
+              <b className="singlepostauthor"> {post.useranme}</b>
+            </Link>
           </span>
           <span> {new Date(post.updatedAt).toDateString()}</span>
         </div>

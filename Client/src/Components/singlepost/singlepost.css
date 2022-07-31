@@ -2,7 +2,7 @@
   flex: 9;
 }
 
-.singlepostwrappr {
+.singlepostwrapper {
   padding: 20px;
   padding-right: 0;
 }
@@ -57,4 +57,24 @@
 .singlepostdesc::first-letter {
   margin-left: 20px;
   font-weight: 600;
+}
+
+.sigleposttitleinput {
+  margin: 10px;
+  font-size: 28px;
+  text-align: center;
+  border: none;
+  color: gray;
+  border-bottom: 1px solid lightgrey;
+}
+
+.siglepostdescinput {
+  border: none;
+  color: gray;
+  line-height: 25px;
+  font-size: 18px;
+}
+
+.singlepostdescinput:focus {
+  outline: none;
 }

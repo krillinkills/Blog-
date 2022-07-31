@@ -34,7 +34,7 @@ app.use('/images', express.static(path.join(__dirname, '/uploads/')));
 
 ///Uplaod files
 app.post('/api/upload', (req, res) => {
-  const fileName = Date.now() + '_' + req.files.file.name;
+  const fileName = req.files.file.name;
   const file = req.files.file;
   let uploadPath = __dirname + '/uploads/' + fileName;
   file.mv(uploadPath, (err) => {

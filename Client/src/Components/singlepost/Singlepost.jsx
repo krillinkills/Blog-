@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Context } from '../../context/Context';
 
-const PF = 'http://localhost:4000/images';
+const PF = 'http://localhost:4000/images/';
 
 function Singlepost() {
   const location = useLocation();

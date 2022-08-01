@@ -2,6 +2,7 @@ import './topbar.css';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { Context } from '../../context/Context';
+const PF = 'http://localhost:4000/images/';
 
 function Topbar() {
   const { user, dispatch } = useContext(Context);
@@ -63,11 +64,8 @@ function Topbar() {
         </ul>
       </div>
       <div className="topRight">
-        <img
-          className="topImg"
-          src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
-          alt=""
-        />
+        <Link to="/settings"></Link>
+        <img className="topImg" src={PF + user.profilePic} alt="" />
         <i className="topSearchIcon fa-solid fa-magnifying-glass"></i>
       </div>
     </div>

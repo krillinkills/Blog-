@@ -1,7 +1,25 @@
 import './setting.css';
 import Sidebar from '../../Components/sidebar/Sidebar';
+import { Context } from '../../context/Context';
+import { useState, useContext } from 'react';
+import axios from 'axios';
+const PF = 'http://localhost:4000/images/';
 
 function Setting() {
+  const { user } = useContext(Context);
+  const [file, setFile] = useState(null);
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const updatedUser = {
+      userId: user._id,
+      username,
+      email,
+      password,
+    };
+  };
   return (
     <div className="settings">
       <div className="settingswrapper">

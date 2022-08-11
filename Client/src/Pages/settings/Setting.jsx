@@ -19,6 +19,17 @@ function Setting() {
       email,
       password,
     };
+    if (file) {
+      const data = new FormData();
+      const filename = file.name;
+      data.append('name', filename);
+      data.append('file', file);
+      updatedUser.profilepic = filename;
+      axios.post('http://localhost:4000/api/upload', data);
+      axios
+        .put('http://localhost:4000/api/users/' + user._id, updatedUser)
+        .then((res) => window.location.reload());
+    }
   };
   return (
     <div className="settings">
